@@ -8,6 +8,8 @@ These functions below provide a time-saving tool to get inverse of matrix when t
 
 Computations is performed only once, and result is stored in cache.
 
+In case matrix is reset, cache is automatically flushed.
+
 **Usage**: apply the function makeCacheMatrix to your matrix. When the inverse is needed, call cacheSolve on that object. See function docs below.
 
 ## EXAMPLE

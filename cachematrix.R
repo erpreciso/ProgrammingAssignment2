@@ -51,8 +51,8 @@
 # argument (optional): a matrix object
 # return: an object with the following methods:
 #   - get: return the contained matrix
-#   - set: set the matrix
-#   - getinverse: get inverse of the matrix if previously computed
+#   - set: set the matrix and clean the inverse cached
+#   - getinverse: get inverse of the matrix if previously computed and if it hasn't been reset
 #   - setinverse: set inverse of the matrix
 # usage: <symbol> <- makeCacheMatrix(<your matrix object here>)
 #        or
@@ -79,6 +79,8 @@ makeCacheMatrix <- function(x = matrix()) {
 # return: inverse of the matrix stored in the object passed.
 #         If this is retrieved from cache, a message will be printed:
 #           "getting cache data"
+#         If it's not stored in cache, and need to be computed (i.e. matrix just created,
+#         or matrix changed), it compute the inverse and store in cache
 # usage: cacheSolve(<makeCacheMatrix object>)
 
 cacheSolve <- function(x, ...) {
